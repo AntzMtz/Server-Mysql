@@ -59,6 +59,7 @@ router.post('/edit/:Id', async(req, res) => {
 
 
     await pool.query('update Usuarios set ? where idUser = ?', [newLink, Id])
+    req.flash('success', 'Se actualizo correctamente')
         // res.redirect('/links');
     res.redirect('/links')
 });

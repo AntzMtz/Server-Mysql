@@ -1,0 +1,25 @@
+<div class="container p-4">
+    <div class="col-m-4">
+        <div class="card">
+            <div class="card-body">
+                <form action="/links/edit/{{links.idUser}}" method="POST">
+                    <div class="form-group">
+                        <input type="text" value="{{links.idUser}}" class="form-control" name="Id" placeholder="Usuario", autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" value="{{links.Nombre}}" name="Name" class="form-control" placeholder="Nombre Completo">
+                    </div>
+                    <div class="form-group">
+                        {{!-- <textarea name="Descripcion"  rows="2" class="form-control" placeholder="Descripción"></textarea> --}}
+                        <input type="password" value="{{links.Password}}" name="pass" class="form-control" placeholder="password">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success btn-block">
+                            Cambiar
+                        </button>
+                    </div>   
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

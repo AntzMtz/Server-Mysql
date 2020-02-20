@@ -1,0 +1,30 @@
+<div class="container p-4">
+    <div class="row">
+        {{#each links}}
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <a href="http://www.google.com">
+                            <h3 class="card-title text-uppercase">
+                                {{idUser}}
+                            </h3>
+                        </a>
+                        <p class="m2">
+                            {{Nombre}}
+                        </p>
+                        <p>{{timeago1}}</p>
+                        <a href="/links/delete/{{idUser}}" class="btn btn-danger">Delete</a>
+                        <a href="/links/edit/{{idUser}}" class="btn btn-secondary">edit</a>
+                    </div>
+                </div>
+            </div>
+            {{else}}
+            <div class="card card-body text-center">
+                <p>No existen usuarios favor de crearlo</p>
+                {{!-- <a href="/links/add" class="btn btn-link" role="button">Crea uno</a> --}}
+                <a id = 'boton' class="btn btn-primary" href="/links/add" role="button" width ='100px' >Crea uno</a>
+            </div>
+        {{/each}}
+        
+    </div>
+</div>

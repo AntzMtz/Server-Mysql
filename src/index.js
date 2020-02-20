@@ -6,7 +6,9 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const msySqlstore = require('express-mysql-session');
 const { database } = require('./keys')
-    //inicializar
+
+// para matar todos los nodos: killall node
+//inicializar
 const app = express();
 
 

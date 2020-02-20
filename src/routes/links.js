@@ -18,6 +18,7 @@ router.post('/add', async(req, res) => {
     };
     await pool.query(indexControler.addUser, [newLink]);
     console.log(newLink);
+    req.flash('success', 'Se Dio de Alta correctamente el usuario: ' + Id)
     res.redirect('/links')
 });
 
@@ -34,7 +35,9 @@ router.get('/delete/:idUser', async(req, res) => {
     // res.send('eliminado');
     const { idUser } = req.params;
     await pool.query('delete from Usuarios where idUser = ?', [idUser])
+    req.flash('success', 'Se Borro correctamente el usuario: ' + idUser)
     res.redirect('/links');
+
 });
 
 router.get('/edit/:idUser', async(req, res) => {

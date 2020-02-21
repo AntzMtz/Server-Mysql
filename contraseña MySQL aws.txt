@@ -1,0 +1,6 @@
+Password for your database database-1
+This is the only time you will be able to view this password. Copy and save the password for your reference, otherwise you will need to modify the database to change it.
+Master username
+antzmtz
+Master password
+maryant01

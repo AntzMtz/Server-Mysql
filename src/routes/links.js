@@ -2,12 +2,13 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../database');
 const indexControler = require('../controls/dbInst');
+const {isLoggedIn}=require('../lib/auth')
 
 router.get('/add', (req, res) => {
     res.render('./links/add')
 });
 
-router.post('/add', async(req, res) => {
+router.post('/add',isLoggedIn, async(req, res) => {
     console.log("Log de respuesta: " + JSON.stringify(req.body));
     const { Id, Name, pass } = req.body
 
@@ -22,7 +23,7 @@ router.post('/add', async(req, res) => {
     res.redirect('/links')
 });
 
-router.get('/', async(req, res) => {
+router.get('/', isLoggedIn,async(req, res) => {
     const id = 'Antz';
     const name = 'Antonio Martinez';
     const links = await pool.query(indexControler.selUserT, [id, name]);
@@ -30,7 +31,7 @@ router.get('/', async(req, res) => {
     res.render('links/list', { links });
 });
 
-router.get('/delete/:idUser', async(req, res) => {
+router.get('/delete/:idUser', isLoggedIn, async(req, res) => {
     console.log("Hola: " + req.params.idUser);
     // res.send('eliminado');
     const { idUser } = req.params;
@@ -40,7 +41,7 @@ router.get('/delete/:idUser', async(req, res) => {
 
 });
 
-router.get('/edit/:idUser', async(req, res) => {
+router.get('/edit/:idUser', isLoggedIn,async(req, res) => {
     console.log("Edit: " + req.params.idUser);
     const { idUser } = req.params;
     const link1 = await pool.query(indexControler.selUser, [idUser]);
@@ -49,7 +50,7 @@ router.get('/edit/:idUser', async(req, res) => {
     res.render('links/edit', { links: link1[0] });
 });
 
-router.post('/edit/:Id', async(req, res) => {
+router.post('/edit/:Id', isLoggedIn,async(req, res) => {
     const { Id } = req.params;
     const { Name, pass } = req.body;
     const idAnt = req.body.Id;

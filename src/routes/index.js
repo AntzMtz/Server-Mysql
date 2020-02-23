@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-
-router.get('/', (req, res) => {
-    res.send('Hola Mundo');
+const {isNotLoggedIn} = require('../lib/auth');
+router.get('/',  isNotLoggedIn ,(req, res) => {
+    res.redirect('/singin')
 });
 
 

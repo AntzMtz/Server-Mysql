@@ -1,5 +1,6 @@
 body {
     background-color: cornflowerblue;
+    overflow: hidden;
 }
 
 nav {
@@ -22,4 +23,32 @@ button {
 #conter {
     border: 1px;
     padding: 10px;
+}
+.index{
+    width: 100vw;
+    height: 100vh;
+
+}
+.masthead{
+    color: lime;
+    min-height: 30rem;
+    width: 100%;
+    height: 100%;
+    padding-top: 8rem;
+    background: url('/imagen/lobo01.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.masthead h1{
+    font-size: 4rem;
+    margin: 0;
+    padding: 0;
+}
+
+@media(min-width: 992px){
+    .masthead h1{
+        font-size: 5.5rem;
+    }
 }

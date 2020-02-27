@@ -3,3 +3,5 @@ npm i nodemon -D
 npm i ejs body-parser
 
 npm i method-override mongoose 
+
+npm install handlebars@4.5.3
